@@ -30,3 +30,10 @@ pwgen 14 1
 
 gpg --gen-random --armor 1 14
 
+
+#Who logged in
+sudo ps au
+who -H
+who -u
+whoami
+
