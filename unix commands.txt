@@ -18,7 +18,8 @@ whoami
 
 
 #to check strength of the password
-sudo apt install cracklib-runtime
+sudo apt-get update
+sudo apt-get install cracklib-runtime
 echo viki | cracklib-check
 
 
