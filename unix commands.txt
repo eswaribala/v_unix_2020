@@ -15,3 +15,8 @@ Ccsm
 https://cocalc.com/doc/terminal.html
 sudo login
 whoami
+
+
+#to check strength of the password
+sudo apt install cracklib-runtime
+echo viki | cracklib-check
