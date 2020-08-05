@@ -40,3 +40,9 @@ whoami
 sudo apt-get install finger
 finger test
 
+#to view hierarchical file structure
+
+sudo apt-get install tree
+tree /etc
+
+
