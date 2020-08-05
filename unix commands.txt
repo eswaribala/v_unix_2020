@@ -13,4 +13,5 @@ Ccsm
 #online terminal
 
 https://cocalc.com/doc/terminal.html
-
+sudo login
+whoami
