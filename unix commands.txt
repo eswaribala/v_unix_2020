@@ -20,3 +20,9 @@ whoami
 #to check strength of the password
 sudo apt install cracklib-runtime
 echo viki | cracklib-check
+
+
+#To generate the password
+openssl rand -base64 32
+sudo apt-get install pwgen
+pwgen 14 1
