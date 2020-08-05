@@ -1,3 +1,11 @@
 ls /etc/default
 ps -ef | grep init
 ls -l /etc/r*
+https://www.zdnet.com/article/how-to-run-run-the-native-ubuntu-desktop-on-windows-10/
+apt-get install ubuntu-desktop
+apt-get install unity
+apt-get install compiz-core
+apt-get install compizconfig-settings-manager
+ export DISPLAY=localhost:0
+Ccsm
+
