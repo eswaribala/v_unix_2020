@@ -27,3 +27,6 @@ echo viki | cracklib-check
 openssl rand -base64 32
 sudo apt-get install pwgen
 pwgen 14 1
+
+gpg --gen-random --armor 1 14
+
