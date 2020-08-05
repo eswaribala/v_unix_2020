@@ -37,3 +37,6 @@ who -H
 who -u
 whoami
 
+sudo apt-get install finger
+finger test
+
