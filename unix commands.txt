@@ -45,4 +45,5 @@ finger test
 sudo apt-get install tree
 tree /etc
 
-
+#copy dir recursively
+ cp -r ./virtusatraining2020 ./virtusa.$(date +%F_%H%M%S)
