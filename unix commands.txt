@@ -51,4 +51,5 @@ tree /etc
 #less command
 less -p div newsline.html
  head -20 newsline.html
+  tail -20 -f newsline.html
 
