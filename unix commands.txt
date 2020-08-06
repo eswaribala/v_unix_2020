@@ -52,4 +52,32 @@ tree /etc
 less -p div newsline.html
  head -20 newsline.html
   tail -20 -f newsline.html
+  
+  
+  #mysql
+  sudo apt-get remove --purge *mysql*
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt-get remove --purge *mariadb*
+sudo apt-get autoremove
+sudo apt-get autoclean
+dpkg -l | grep mariadb
+dpkg -l | grep mysql
+
+
+Now to fix all broken repositories
+sudo apt-get install –f
+Now Upgrading the Repositories
+sudo apt update
+sudo apt upgrade
+Now, to install MySQL 8, simply type:
+sudo apt install mysql-server
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+(change port)
+
+sudo service mysql start
+sudo mysql_secure_installation
+mysql -u root  -p
+
+  
 
