@@ -47,3 +47,7 @@ tree /etc
 
 #copy dir recursively
  cp -r ./virtusatraining2020 ./virtusa.$(date +%F_%H%M%S)
+
+#less command
+less -p div newsline.html
+
