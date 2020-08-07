@@ -89,5 +89,8 @@ sudo apt-get purge --auto-remove ubuntu-gnome-desktop
 cat newsline.html | head -5 | tail -7
 
  ls -l | find ./ -type f -name "*.txt"
+ 
+  cut -d: -f1 /etc/group
+
   
 
