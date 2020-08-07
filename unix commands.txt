@@ -91,6 +91,10 @@ cat newsline.html | head -5 | tail -7
  ls -l | find ./ -type f -name "*.txt"
  
   cut -d: -f1 /etc/group
+  
+  FTP URL: ftp.dlptest.com or ftp://ftp.dlptest.com/
+FTP User: dlpuser@dlptest.com
+Password: eUj8GeW55SvYaswqUyDSm5v6N
 
   
 
