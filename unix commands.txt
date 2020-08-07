@@ -86,6 +86,6 @@ sudo apt-get remove --auto-remove ubuntu-gnome-desktop
 sudo apt-get purge --auto-remove ubuntu-gnome-desktop
 
 
-
+cat newsline.html | head -5 | tail -7
   
 
