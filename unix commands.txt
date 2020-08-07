@@ -79,5 +79,13 @@ sudo service mysql start
 sudo mysql_secure_installation
 mysql -u root  -p
 
+#uninstall
+sudo apt list –installed
+sudo apt remove xfce4
+sudo apt-get remove --auto-remove ubuntu-gnome-desktop
+sudo apt-get purge --auto-remove ubuntu-gnome-desktop
+
+
+
   
 
