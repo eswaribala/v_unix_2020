@@ -1,0 +1,55 @@
+1.
+The following are input/output examples of date used at arbitrary times in the POSIX locale:
+$ date
+Tue Jun 26 09:58:10 PDT 1990
+
+
+$ date "+DATE: %m/%d/%y%nTIME: %H:%M:%S"
+DATE: 11/02/91
+TIME: 13:36:16
+
+
+$ date "+TIME: %r"
+TIME: 01:36:32 PM
+
+
+2.
+Examples for Denmark, where the default date and time format is %a %d %b %Y %T %Z :
+$ LANG=da_DK.iso_8859-1 date
+ons 02 okt 1991 15:03:32 CET
+
+
+$ LANG=da_DK.iso_8859-1 \
+    date "+DATO: %A den %e. %B %Y%nKLOKKEN: %H:%M:%S"
+DATO: onsdag den 2. oktober 1991
+KLOKKEN: 15:03:56
+
+
+3.
+Examples for Germany, where the default date and time format is %a %d. %h. %Y, %T %Z :
+$ LANG=De_DE.88591 date
+Mi 02.Okt.1991, 15:01:21 MEZ
+
+
+$ LANG=De_DE.88591 date "+DATUM: %A, %d. %B %Y%nZEIT: %H:%M:%S"
+DATUM: Mittwoch, 02. Oktober 1991
+ZEIT: 15:02:02
+
+
+4.
+Examples for France, where the default date and time format is %a %d %h %Y %Z %T :
+$ LANG=Fr_FR.88591 date
+Mer 02 oct 1991 MET 15:03:32
+
+
+$ LANG=Fr_FR.88591 date "+JOUR: %A %d %B %Y%nHEURE: %H:%M:%S"
+JOUR: Mercredi 02 octobre 1991
+HEURE: 15:03:56
+
+%aLocale's abbreviated weekday name.%ALocale's full weekday name.%bLocale's abbreviated month name.%BLocale's full month name.%cLocale's appropriate date and time representation.%CCentury (a year divided by 100 and truncated to an integer) as a decimal number [00,99].%dDay of the month as a decimal number [01,31].%DDate in the format mm/dd/yy.%eDay of the month as a decimal number [1,31] in a two-digit field with leading space character fill.%hA synonym for %b.%HHour (24-hour clock) as a decimal number [00,23].%IHour (12-hour clock) as a decimal number [01,12].%jDay of the year as a decimal number [001,366].%mMonth as a decimal number [01,12].%MMinute as a decimal number [00,59].%nA <newline>.%pLocale's equivalent of either AM or PM.%r12-hour clock time [01,12] using the AM/PM notation; in the POSIX locale, this shall be equivalent to %I : %M : %S %p.%SSeconds as a decimal number [00,60].%tA <tab>.%T24-hour clock time [00,23] in the format HH:MM:SS.%uWeekday as a decimal number [1,7] (1=Monday).%UWeek of the year (Sunday as the first day of the week) as a decimal number [00,53]. All days in a new year preceding the first Sunday shall be considered to be in week 0.%VWeek of the year (Monday as the first day of the week) as a decimal number [01,53]. If the week containing January 1 has four or more days in the new year, then it shall be considered week 1; otherwise, it shall be the last week of the previous year, and the next week shall be week 1.%wWeekday as a decimal number [0,6] (0=Sunday).%WWeek of the year (Monday as the first day of the week) as a decimal number [00,53]. All days in a new year preceding the first Monday shall be considered to be in week 0.%xLocale's appropriate date representation.%XLocale's appropriate time representation.%yYear within century [00,99].%YYear with century as a decimal number.%ZTimezone name, or no characters if no timezone is determinable.%%A percent sign character.
+
+%EcLocale's alternative appropriate date and time representation.%ECThe name of the base year (period) in the locale's alternative representation.%ExLocale's alternative date representation.%EXLocale's alternative time representation.%EyOffset from %EC (year only) in the locale's alternative representation.%EYFull alternative year representation.%OdDay of month using the locale's alternative numeric symbols.%OeDay of month using the locale's alternative numeric symbols.%OHHour (24-hour clock) using the locale's alternative numeric symbols.%OIHour (12-hour clock) using the locale's alternative numeric symbols.%OmMonth using the locale's alternative numeric symbols.%OMMinutes using the locale's alternative numeric symbols.%OSSeconds using the locale's alternative numeric symbols.%OuWeekday as a number in the locale's alternative representation (Monday = 1).%OUWeek number of the year (Sunday as the first day of the week) using the locale's alternative numeric symbols.%OVWeek number of the year (Monday as the first day of the week, rules corresponding to %V ), using the locale's alternative numeric symbols.%OwWeekday as a number in the locale's alternative representation (Sunday = 0).%OWWeek number of the year (Monday as the first day of the week) using the locale's alternative numeric symbols.%OyYear (offset from %C ) in alternative representation.
+mmddhhmm[[cc]yy][XSI] [Option Start]
+ Attempt to set the system date and time from the value given in the operand. This is only possible if the user has appropriate privileges and the system permits the setting of the system date and time. The first mm is the month (number); dd is the day (number); hh is the hour (number, 24-hour system); the second mm is the minute (number); cc is the century and is the first two digits of the year (this is optional); yy is the last two digits of the year and is optional. If century is not specified, then values in the range [69,99] shall refer to years 1969 to 1999 inclusive, and values in the range [00,68] shall refer to years 2000 to 2068 inclusive. The current year is the default if yy is omitted. [Option End] 
+
+
