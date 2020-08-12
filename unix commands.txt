@@ -79,6 +79,11 @@ sudo service mysql start
 sudo mysql_secure_installation
 mysql -u root  -p
 
+create database ecommercedb;
+use ecommercedb;
+create table Product(ProductId int primary key, Name varchar(50), Cost int);
+
+
 #uninstall
 sudo apt list –installed
 sudo apt remove xfce4
