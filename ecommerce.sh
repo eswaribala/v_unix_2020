@@ -1,21 +1,23 @@
 #!/bin/bash
+# using select in the menu
 function sqlhelper {
 
+read -p "FileName" fileName
 
 i=1
 
-if [ -f "mysql.properties" ]
+if [ -f $fileName ]
 then
- echo "It's file and read"
- #Read file using redirection STDIN
- exec 0<"mysql.properties"
- while IFS="=" read -r key value
+  echo "It's file and read"
+  
+while IFS="=" read -r key value
  do 
    echo "$key,$value"
    values[$i]=$value
    #echo "${values[$i]}"
    ((i++))
- done 
+ done < $fileName
+  
 
 else
  echo "It's not a file"
@@ -23,23 +25,48 @@ fi
 
 echo " array of values ${values[1]},${values[2]}, ${values[3]}, ${values[4]}"
 
-return 1
-}
 
+
+
+
+}
 function addproduct {
+echo "Record will be added"
+#Prepare sql query
+echo "$1,$2,$3"
 
-echo "Product will be added"
+#mysql command to connect to database
+#-u username -p password -P port -h host -D db name
+mysql -u ${values[1]} -p${values[2]} -P ${values[3]} -h ${values[4]} -D ${values[5]} <<EOF
+INSERT INTO Product (\`Product_Id\`, \`Name\`, \`Cost\`) VALUES ("$1", "$2", "$3");
+EOF
+echo "End of script"
+
 
 }
+function editproduct {
 
-
-
-
-function retrievedata {
+echo "Record will be edited"
 
 #Prepare sql query
+echo "$1,$2,"
 
-SQL_Query='select * from customer'
+#mysql command to connect to database
+#-u username -p password -P port -h host -D db name
+mysql -u ${values[1]} -p${values[2]} -P ${values[3]} -h ${values[4]} -D ${values[5]} <<EOF
+UPDATE Product SET \`Name\`="$2" WHERE \`Product_Id\`="$1"
+EOF
+echo "End of script"
+
+
+}
+
+function viewproduct {
+
+echo "View Porduct"
+#Prepare sql query
+
+SQL_Query='select * from Product'
 
 #mysql command to connect to database
 #-u username -p password -P port -h host -D db name
@@ -47,48 +74,42 @@ mysql -u ${values[1]} -p${values[2]} -P ${values[3]} -h ${values[4]} -D ${values
 $SQL_Query
 EOF
 echo "End of script"
-
-
-}
-
-function updateproduct {
-
- echo "Product Update will happen"
-
 }
 
 function deleteproduct {
 
- echo "Product will be deleted"
-
-
+echo "Delete Product"
 }
-
-
-
 
 #global varaible
 values=()
 #invoke the function
 
-#create menu
-select option in  "Add Product" "View Products" "Edit Product" "Delete Product" "Exit program"
+PS3="Enter option: "
+select option in "DB Connection" "Add Product" "Edit Product" "View Product" "Delete Product" "Exit Program"
 do
 case $option in
-"Exit program")
+"Exit Program")
 break ;;
-
+"DB Connection")
+sqlhelper ;;
 "Add Product")
-addproduct ;;
-"View Products")
-sqlhelper
-retrievedata ;;
+read -p "Product Id" productId
+read  -p  "Name" name
+read -p "Cost" cost
+addproduct $productId $name $cost;;
 "Edit Product")
-updateproduct ;;
+read -p "Product Id" productId
+read  -p  "Name" name
+editproduct $productId $name;;
+"View Product")
+viewproduct ;;
 "Delete Product")
 deleteproduct ;;
 *)
+clear
 echo "Sorry, wrong selection";;
 esac
 done
+clear
 
