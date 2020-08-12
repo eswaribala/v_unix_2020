@@ -1,14 +1,14 @@
 #!/bin/bash
 function sqlhelper {
 
-read -p "Give File Name:"  fileName
+
 i=1
 
-if [ -f $fileName ]
+if [ -f "mysql.properties" ]
 then
  echo "It's file and read"
  #Read file using redirection STDIN
- exec 0<$fileName
+ exec 0<"mysql.properties"
  while IFS="=" read -r key value
  do 
    echo "$key,$value"
@@ -23,6 +23,7 @@ fi
 
 echo " array of values ${values[1]},${values[2]}, ${values[3]}, ${values[4]}"
 
+return 1
 }
 
 function addproduct {
@@ -69,29 +70,24 @@ function deleteproduct {
 #global varaible
 values=()
 #invoke the function
-sqlhelper
-#display values from sqlhelper
-echo " array of values from main ${values[1]},${values[2]}, ${values[3]}, ${values[4]}"
-
-PS3="Enter option: "
 
 #create menu
-select option in "Add Product" "View Products" "Edit Product" "Delete Product" "Exit program"
+select option in  "Add Product" "View Products" "Edit Product" "Delete Product" "Exit program"
 do
 case $option in
 "Exit program")
 break ;;
-"Add Producr")
+
+"Add Product")
 addproduct ;;
 "View Products")
+sqlhelper
 retrievedata ;;
-"Edit product")
+"Edit Product")
 updateproduct ;;
-"Delete product")
+"Delete Product")
 deleteproduct ;;
-
 *)
-clear
 echo "Sorry, wrong selection";;
 esac
 done
